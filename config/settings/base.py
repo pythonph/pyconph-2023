@@ -24,8 +24,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "home",
-    "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -45,6 +43,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    "pyconph.home",
+    "pyconph.search",
+    "pyconph.presentations",
+    "pyconph.sponsors",
 ]
 
 MIDDLEWARE = [
@@ -58,7 +61,7 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
-ROOT_URLCONF = "pyconph.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -78,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "pyconph.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
