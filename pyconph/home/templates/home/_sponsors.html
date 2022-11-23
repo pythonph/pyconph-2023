@@ -1,0 +1,58 @@
+{% load static %}
+
+<div class="bg-bianca py-50 md:py-90 border-b border-cioccolato-10 min-h-screen">
+    <div class="max-w-1204 mx-auto px-15 2xl:px-0">
+        <h3 class="text-cioccolato text-32 lg:text-48 font-medium text-center">
+            {{ page.sponsor_title }}
+        </h3>
+        <h4 class="text-cioccolato-60 text-24 font-tagalogdoctrina1593 font-bold text-center mb-10 lg:mb-32">
+            {{ page.sponsor_subtitle }}
+        </h4>
+        <div class="py-32">
+            <div class="tab-slider-wrapper w-full mx-auto mb">
+                <div class="tabs-scroller-wrapper relative">
+                    <button
+                        class="left scroller-btn"
+                        id="scroller-btn-left">
+                        <img
+                            src="{% static 'img/icon/icon-arrow-left.svg' %}" />
+                    </button>
+                    <ul id="tab-scroller" class="nav nav-tabs-slider flex justify-start xl:justify-center items-start overflow-hidden">
+                        <li class="active">
+                            <button
+                                class="filter-sponsor active"
+                                data-filter="all">
+                                All
+                            </button>
+                        </li>
+
+                        {% for sponsor_type in page.sponsor_types %}
+                        <li>
+                            <button
+                                class="filter-sponsor"
+                                data-filter="{{ sponsor_type.name.lower }}">
+                                {{ sponsor_type.name }}
+                            </button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <button
+                        class="right scroller-btn"
+                        id="scroller-btn-right">
+                        <img
+                            src="{% static 'img/icon/icon-arrow-right.svg' %}" />
+                    </button>
+                </div>
+            </div>
+            <div class="list-sponsor flex flex-wrap justify-center gap-x-15 md:gap-x-18 gap-y-70">
+                {% for sponsor in page.sponsors %}
+                <div
+                    class="item mix-blend-darken flex justify-center"
+                    data-filter="{{ sponsor.sponsor_type.name.lower }}">
+                    <img src="{{ sponsor.logo.url }}" />
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

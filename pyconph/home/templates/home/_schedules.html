@@ -1,0 +1,60 @@
+<div class="bg-bianca bg-img-5 bg-no-repeat bg-bottom xl:bg-contain bg-sm-img-b-4 xl:bg-img-b-4 py-50 md:py-90">
+    <div class="max-w-1204 mx-auto px-15 2xl:px-0">
+        <h3 class="text-cioccolato text-32 lg:text-48 font-medium text-center">
+            {{ page.schedule_title }}
+        </h3>
+        <h4 class="text-cioccolato-60 text-24 font-tagalogdoctrina1593 font-bold text-center mb-10 lg:mb-32">
+            {{ page.schedule_subtitle }}
+        </h4>
+        <div class="py-32">
+            <div
+                class="tab flex items-center justify-center gap-5 mb-40">
+                <button
+                    class="tablinks active px-20 w-172 md:w-310 text-center text-16 md:text-24 font-medium rounded-full py-11 flex justify-center"
+                    onclick="toggleTab(event, 'first')">
+                    1st Day - {{ page.day1_date }}
+                </button>
+                <button
+                    class="tablinks px-20 w-172 md:w-310 text-center text-16 md:text-24 font-medium rounded-full py-11 flex justify-center"
+                    onclick="toggleTab(event, 'second')">
+                    2nd Day - {{ page.day2_date }}
+                </button>
+            </div>
+
+            <div
+                class="hidden md:flex h-48 border-cioccolato border-b border-t items-center">
+                <div
+                    class="w-2/12 px-10 text-cioccolato-60 text-16 font-medium text-left">
+                    Time
+                </div>
+                <div
+                    class="w-4/12 text-cioccolato-60 text-16 font-medium text-left px-10">
+                    Session
+                </div>
+                <div
+                    class="w-3/12 text-cioccolato-60 text-16 font-medium text-left px-10">
+                    Speaker
+                </div>
+                <div
+                    class="w-3/12 text-cioccolato-60 text-16 font-medium text-left px-10">
+                    Stage
+                </div>
+            </div>
+
+            <div id="tab-contents">
+                <div id="first" class="tabcontent block md:py-25">
+                    {% for event in page.day1_events %}
+                        {% include 'home/_schedule_detail.html' with event=event %}
+                    {% endfor %}
+                </div>
+                <div id="second" class="tabcontent md:py-25 hidden">
+                    {% for event in page.day2_events %}
+                        {% include 'home/_schedule_detail.html' with event=event %}
+                    {% endfor %}
+                </div>
+            </div>
+            <hr
+                class="border-cioccolato border-b-1 w-full my-10 md:hidden" />
+        </div>
+    </div>
+</div>

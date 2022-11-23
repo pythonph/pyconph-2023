@@ -1,0 +1,36 @@
+{% load wagtailcore_tags %}
+
+<div class="flex flex-wrap border-cioccolato border-t pt-10 md:border-0 md:pt-0 md:mb-20">
+    <div class="w-1/2 md:w-2/12 px-10 md:px-0x text-cioccolato text-16">
+        <span class="inline-block md:w-102 text-cioccolato text-16">
+            {{ event.time }}
+        </span>
+    </div>
+    <div class="md:order-last md:w-3/12 w-1/2 px-10 text-cioccolato text-16 font-medium text-right md:text-left">
+        {{ event.location }}
+    </div>
+
+    <hr class="border-cioccolato border-b-1 w-full my-10 mx-10 md:hidden" />
+
+    <div class="w-full md:w-4/12 px-10 mb-10">
+        <h3
+            class="text-cioccolato text-24 font-medium">
+            {{ event.name }}
+        </h3>
+        {% if event.description %}
+        <div class="text-cioccolato-60 text-14">
+            {{ event.description|richtext }}
+        </div>
+        {% endif %}
+    </div>
+    <div class="w-full md:w-3/12 px-10 mb-10">
+        {% if event.speaker %}
+        <h3 class="text-cioccolato text-24 font-medium">
+            {{ event.speaker.full_name }}
+        </h3>
+        <h4 class="text-cioccolato-60 text-14">
+            {{ event.speaker.title }}
+        </h4>
+        {% endif %}
+    </div>
+</div>

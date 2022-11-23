@@ -1,0 +1,29 @@
+{% load wagtailimages_tags %}
+
+<div class="bg-yelloworange md:bg-img-4 bg-contain bg-bottom bg-no-repeat py-70 lg:py-125">
+    <div class="max-w-1204 mx-auto px-5 2xl:px-0">
+        <h2 class="text-cioccolato text-32 lg:text-48 font-medium text-center mb-15">
+            {{ page.speaker_title }}
+        </h2>
+        <p class="text-cioccolato-60 text-24 font-tagalogdoctrina1593 font-bold text-center mb-10 lg:mb-32">
+            {{ page.speaker_subtitle }}
+        </p>
+        <div class="flex flex-wrap justify-center">
+            {% for speaker in page.speakers %}
+            <div class="w-full md:w-1/2 lg:w-1/4 px-10 py-12">
+                <div class="xl:h-290 overflow-hidden">
+                    {% image speaker.display_photo original class="w-full py-zoom-in" %}
+                </div>
+                <div class="pt-10">
+                    <h3 class="text-24 text-cioccolato font-medium">
+                        {{ speaker.full_name }}
+                    </h3>
+                    <h4 class="text-cioccolato-60 text-14 font-medium mb-5">
+                        {{ speaker.title }}
+                    </h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
