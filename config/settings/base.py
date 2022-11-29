@@ -169,4 +169,4 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 
-CSRF_TRUSTED_ORIGINS = ['https://pyconph.zorx.space']
+CSRF_TRUSTED_ORIGINS = ['https://pyconph.zorx.space', 'https://pycon.python.ph']
