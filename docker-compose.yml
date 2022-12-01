@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    command: gunicorn --bind 0.0.0.0:80 --access-logfile - --error-logfile - --reload config.wsgi
+    env_file:
+      - local.env
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/usr/src/app
+
+
+  postgres:
+    image: postgres:alpine
+    env_file:
+      - local.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+    ports:
+      - "5433:5432"
+
+volumes:
+  postgres-data:

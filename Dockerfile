@@ -1,4 +1,4 @@
-FROM python:3.11-slim-buster
+FROM python:3.10
 
 RUN mkdir -p /usr/src/app
 
@@ -10,4 +10,7 @@ WORKDIR /usr/src/app
 
 RUN python manage.py migrate
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+EXPOSE 80
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "--access-logfile", "-", "--error-logfile", "-", "config.wsgi"]
