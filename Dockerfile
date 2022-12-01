@@ -12,5 +12,4 @@ RUN python manage.py migrate
 
 EXPOSE 80
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["gunicorn", "--bind", "0.0.0.0:80", "--access-logfile", "-", "--error-logfile", "-", "config.wsgi"]
