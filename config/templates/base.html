@@ -16,9 +16,19 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <meta property="og:title" content="PyCon PH 2023" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pycon.python.ph/" />
+        <meta property="og:image" content="{% static 'img/landing.png' %}" />
+        <meta name="twitter:title" content="PyCon PH 2023">
+        <meta name="twitter:description" content="Offering tour packages for individuals or groups.">
+        <meta name="twitter:image" content="{% static 'img/landing.png' %}">
+        <meta name="twitter:card" content="summary_large_image">
+        
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/banner.css' %}">
+        <link rel="shortcut icon" href="{% static 'img/icon-logo.svg' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
