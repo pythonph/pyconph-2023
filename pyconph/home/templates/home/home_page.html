@@ -44,6 +44,14 @@
         </div>
     </main>
 
+    {% if page.banner_title %}
+    <div id="banner">
+        <a href="{{ page.banner_link }}" target="_blank">
+            <strong>{{ page.banner_title }}</strong>
+        </a>
+    </div>
+    {% endif %}
+
     <!-- About Pycon -->
     <div class="bg-yelloworange bg-img-2 bg-contain bg-no-repeat bg-bottom pb-50 pt-5">
         <div class="max-w-1204 mx-auto px-15 2xl:px-0">

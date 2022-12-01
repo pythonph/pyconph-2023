@@ -51,8 +51,18 @@ class HomePage(Page):
     sponsor_title = models.CharField(max_length=255)
     sponsor_subtitle = models.CharField(max_length=255, blank=True)
 
+    banner_title = models.CharField(max_length=20, blank=True)
+    banner_link = models.URLField(blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel("ticket_link"),
+        FieldRowPanel(
+            [
+                FieldPanel("banner_title"),
+                FieldPanel("banner_link"),
+            ],
+            heading="Date and Time",
+        ),
         FieldRowPanel(
             [
                 FieldPanel("date_start"),
