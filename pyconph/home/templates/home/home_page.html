@@ -34,25 +34,26 @@
                     {{ page.location_city }}
                 </p>
             </div>
-            {% if page.ticket_link %}
-            <a
-                href="{{ page.ticket_link|default:'#' }}"
-                class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
-                >Buy Tickets</a
-            >
-            {% endif %}
+            <div class="flex">
+                {% if page.banner_link %}
+                <a
+                    href="{{ page.banner_link|default:'#' }}"
+                    class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
+                    >{{ page.banner_title }}</a
+                >
+                {% endif %}
+                {% if page.ticket_link %}
+                <a
+                    href="{{ page.ticket_link|default:'#' }}"
+                    class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
+                    >Buy Tickets</a
+                >
+                {% endif %}
+            </div>
         </div>
     </main>
 
-    {% if page.banner_title %}
-    <div id="banner">
-        <a href="{{ page.banner_link }}" target="_blank">
-            <strong>{{ page.banner_title }}</strong>
-        </a>
-    </div>
-    {% endif %}
-
-    <!-- About Pycon -->
+   <!-- About Pycon -->
     <div class="bg-yelloworange bg-img-2 bg-contain bg-no-repeat bg-bottom pb-50 pt-5">
         <div class="max-w-1204 mx-auto px-15 2xl:px-0">
             {% for content in page.contents.all %}
