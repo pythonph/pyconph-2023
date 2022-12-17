@@ -50,9 +50,12 @@
             <div class="list-sponsor flex flex-wrap justify-center gap-x-15 md:gap-x-18 gap-y-70">
                 {% for sponsor in page.sponsors %}
                 <div
-                    class="item mix-blend-darken flex justify-center"
+                    class="item mix-blend-darken flex justify-center tooltip"
                     data-filter="{{ sponsor.sponsor_type.name.lower }}">
-                    <img src="{{ sponsor.logo.url }}" />
+                    <a href="{{ sponsor.website_url }}">
+                        <img src="{{ sponsor.logo.url }}" />
+                    </a>
+                    <span class="tooltiptext">{{ sponsor.info }}</span>
                 </div>
                 {% endfor %}
             </div>

@@ -47,6 +47,7 @@ class Sponsor(models.Model):
         on_delete=models.PROTECT,
         related_name="sponsors",
     )
+    website_url = models.URLField(blank=True, null=True)
     sponsorship_date = models.DateField(blank=True, null=True)
 
     def __str__(self):
