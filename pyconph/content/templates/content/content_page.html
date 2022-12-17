@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="pt-90 bg-bianca bg-img-8 bg-no-repeat bg-bottom bg-contain" id="conduct">
+    <div class="max-w-1204 mx-auto px-15 2xl:px-0 relative pb-90">
+        <div class="mb-32">
+            <h3 class="text-cioccolato text-32 lg:text-48 font-medium">
+                {{ page.content_title }}
+            </h3>
+            <h4 class="text-cioccolato-60 text-24 font-baybayinsisil mb-10 lg:mb-32">
+                {{ page.content_subtitle }}
+            </h4>
+            <p>
+            {{ page.content_body|richtext }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
