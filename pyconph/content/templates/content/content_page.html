@@ -3,10 +3,23 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
+{% block extra_css %}
+<style type="text/css">
+h1, h2, h3, h4 {
+  --tw-text-opacity: 1;
+  color: rgb(74 48 10 / var(--tw-text-opacity));
+}
+ul > li {
+  font-size: 1.125rem;
+  line-height: 1.293rem;
+  color: rgba(74,48,10,.6);
+}
+
+</style>
+{% endblock %}
+
 {% block content %}
-
 {% load static %}
-
 <div class="pt-90 bg-bianca bg-img-8 bg-no-repeat bg-bottom bg-contain" id="conduct">
     <div class="max-w-1204 mx-auto px-15 2xl:px-0 relative pb-90">
         <div class="mb-32">
