@@ -827,6 +827,10 @@ img {
     font-family: Ubuntu
 }
 
+.font-tagalogdoctrina1593{
+    font-family: Tagalog-Doctrina-1593
+}
+
 .font-baybayinsisil {
     font-family: Baybayin-Sisil
 }
@@ -1228,4 +1232,8 @@ p {
         padding-left: 0;
         padding-right: 0
     }
+}
+
+.category-list {
+    list-style: none;
 }
