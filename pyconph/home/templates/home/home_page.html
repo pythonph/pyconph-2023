@@ -1,146 +1,162 @@
 {% extends "base.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}bg-yelloworange font-ubuntu relative{% endblock %}
 
 {% block content %}
-
-<body class="bg-yelloworange font-ubuntu relative">
-    <!-- Main -->
-    <main
-        class="bg-yelloworange bg-img-1 bg-cover xl:bg-contain min-h-1050 h-screen pt-248 md:pt-0">
-        <div
-            class="relative flex flex-col items-center md:justify-center h-full">
-            <div class="flex flex-col md:flex-row items-center mb-15">
-                <p class="text-white text-24 md:text-48 mr-15 font-tagalogdoctrina1593">
-                    Ug/nyn/
-                </p>
-                <p class="text-white text-24 md:text-32">
-                    (u•g•na•ya•n / connection)
-                </p>
-            </div>
-            <img
-                class="w-screen-32 lg:max-w-1050 mb-32"
-                src="{% static 'img/icon/icon-pyconph-2023.svg' %}"
-                alt="PyCon PH 2023" />
-            <div
-                class="flex pt-200 xl:pt-35 md:pb-15 items-center justify-center">
-                <p class="text-white text-16 md:text-32 font-medium">
-                    {{ page.date }}
-                </p>
-                <span
-                    class="bg-nileblue w-6 h-6 rotate-45 mx-15 mb-10"></span>
-                <p class="text-white text-16 md:text-32 font-medium">
-                    {{ page.location_city }}
-                </p>
-            </div>
-            <div class="flex">
-                {% if page.banner_link %}
-                <a
-                    href="{{ page.banner_link|default:'#' }}"
-                    class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
-                    >{{ page.banner_title }}</a
-                >
-                {% endif %}
-                {% if page.ticket_link %}
-                <a
-                    href="{{ page.ticket_link|default:'#' }}"
-                    class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
-                    >Buy Tickets</a
-                >
-                {% endif %}
-            </div>
-        </div>
-    </main>
-
-   <!-- About Pycon -->
-    <div class="bg-yelloworange bg-img-2 bg-contain bg-no-repeat bg-bottom pb-50 pt-5">
-        <div class="max-w-1204 mx-auto px-15 2xl:px-0">
-            {% for content in page.contents.all %}
-                {% include 'home/_content.html' with content=content %}
+<!-- Burger Menu -->
+<div id="menu">
+    <div id="menu-bar" onclick="menuOnClick()">
+        <div id="bar1" class="bar"></div>
+        <div id="bar2" class="bar"></div>
+        <div id="bar3" class="bar"></div>
+    </div>
+    <nav class="nav" id="nav">
+        <ul>
+            {% for menu_page in page.get_children.live.in_menu %}
+                <li>
+                <a href="{{ menu_page.url }}" class="nav-link">{{ menu_page.title }}</a>
+                </li>
             {% endfor %}
+        </ul>
+    </nav> 
+</div>
+<div class="menu-bg" id="menu-bg"></div>
+
+<!-- Main -->
+<main
+    class="bg-yelloworange bg-img-1 bg-cover xl:bg-contain min-h-1050 h-screen pt-248 md:pt-0">
+    <div
+        class="relative flex flex-col items-center md:justify-center h-full">
+        <div class="flex flex-col md:flex-row items-center mb-15">
+            <p class="text-white text-24 md:text-48 mr-15 font-tagalogdoctrina1593">
+                Ug/nyn/
+            </p>
+            <p class="text-white text-24 md:text-32">
+                (u•g•na•ya•n / connection)
+            </p>
         </div>
-    </div>
-
-    <!-- Keynote Speakers -->
-    {% if page.keynote_speakers %}
-        {% include 'home/_keynotes.html' %}
-    {% endif %}
-
-    <!-- Speakers -->
-    {% if page.speakers %}
-        {% include 'home/_speakers.html' %}
-    {% endif %}
-
-    <!-- Program Schedule -->
-    {% if page.day1_events %}
-        {% include 'home/_schedules.html' %}
-    {% endif %}
-
-    <!-- Event -->
-    <div class="bg-nileblue md:bg-img-6 py-90">
+        <img
+            class="w-screen-32 lg:max-w-1050 mb-32"
+            src="{% static 'img/icon/icon-pyconph-2023.svg' %}"
+            alt="PyCon PH 2023" />
         <div
-            class="max-w-1204 mx-auto px-15 2xl:px-0 flex flex-col md:flex-row justify-between">
-            <div class="flex flex-col justify-between md:pr-20">
-                <div class="mb-32 lg:mb-0">
-                    <h3 class="text-white font-medium text-32 lg:text-48">
-                        When is it?
-                    </h3>
-                    <h4
-                        class="text-white-60 text-24 font-baybayinsisil mb-10 lg:mb-18">
-                        When is it?
-                    </h4>
-                    <h4
-                        class="w-fit bg-yelloworange text-white text-24 font-medium px-10 py-6 mb-8">
-                        {{ page.date }}
-                    </h4>
-                    <h5 class="text-white-60 text-18 italic">
-                        *Doors open at <span class="underline">{{ page.doors_open }}</span>
-                    </h5>
-                </div>
-                <div class="">
-                    <h3 class="text-white font-medium text-32 lg:text-48">
-                        Where is it?
-                    </h3>
-                    <h4
-                        class="text-white-60 text-24 font-baybayinsisil mb-10 lg:mb-18">
-                        Where is it?
-                    </h4>
-                    <h4
-                        class="w-fit bg-yelloworange text-white text-24 font-medium px-10 py-6 mb-8">
-                        {{ page.location_main }}
-                    </h4>
-                    <h5 class="text-white-60 text-18 mb-10">
-                        {{ page.location_city }}
-                    </h5>
-                    <a href="{{ page.location_link|default:'#' }}" class="text-yelloworange flex items-center">
-                        <span class="font-bold text-18 pr-10">Show me directions</span>
-                        <svg
-                            width="23"
-                            height="8"
-                            viewBox="0 0 23 8"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M19.5677 0.226918C19.2917 0.180042 19 0.383168 19 0.706084V2.73733H1.99999C1.64062 2.73213 1.30207 2.91963 1.11978 3.23213C0.942698 3.54463 0.942698 3.93004 1.11978 4.24254C1.30207 4.55504 1.64062 4.74254 1.99999 4.73733H19V6.76859C19 7.20088 19.5208 7.41963 19.8229 7.11233L22.8594 4.08108C23.0469 3.88838 23.0469 3.58629 22.8594 3.39359L19.8229 0.362334C19.75 0.284209 19.6614 0.242542 19.5677 0.226918Z"
-                                fill="#FFAD39" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2 lg:w-auto lg:max-w-850 pt-32 lg:pt-0 flex items-center">
-                {% image page.location_image original %}
-            </div>
+            class="flex pt-200 xl:pt-35 md:pb-15 items-center justify-center">
+            <p class="text-white text-16 md:text-32 font-medium">
+                {{ page.date }}
+            </p>
+            <span
+                class="bg-nileblue w-6 h-6 rotate-45 mx-15 mb-10"></span>
+            <p class="text-white text-16 md:text-32 font-medium">
+                {{ page.location_city }}
+            </p>
+        </div>
+        <div class="flex">
+            {% if page.banner_link %}
+            <a
+                href="{{ page.banner_link|default:'#' }}"
+                class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
+                >{{ page.banner_title }}</a
+            >
+            {% endif %}
+            {% if page.ticket_link %}
+            <a
+                href="{{ page.ticket_link|default:'#' }}"
+                class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in"
+                >Buy Tickets</a
+            >
+            {% endif %}
         </div>
     </div>
+</main>
 
-    <!-- Sponsors -->
-    {% if page.sponsors %}
-        {% include 'home/_sponsors.html' %}
-    {% endif %}
+<!-- About Pycon -->
+<div class="bg-yelloworange bg-img-2 bg-contain bg-no-repeat bg-bottom pb-50 pt-5">
+    <div class="max-w-1204 mx-auto px-15 2xl:px-0">
+        {% for content in page.contents.all %}
+            {% include 'home/_content.html' with content=content %}
+        {% endfor %}
+    </div>
+</div>
 
-    <!-- Conduct -->
-    {% include "home/_code_of_conduct.html" %}
-</body>
+<!-- Keynote Speakers -->
+{% if page.keynote_speakers %}
+    {% include 'home/_keynotes.html' %}
+{% endif %}
+
+<!-- Speakers -->
+{% if page.speakers %}
+    {% include 'home/_speakers.html' %}
+{% endif %}
+
+<!-- Program Schedule -->
+{% if page.day1_events %}
+    {% include 'home/_schedules.html' %}
+{% endif %}
+
+<!-- Event -->
+<div class="bg-nileblue md:bg-img-6 py-90">
+    <div
+        class="max-w-1204 mx-auto px-15 2xl:px-0 flex flex-col md:flex-row justify-between">
+        <div class="flex flex-col justify-between md:pr-20">
+            <div class="mb-32 lg:mb-0">
+                <h3 class="text-white font-medium text-32 lg:text-48">
+                    When is it?
+                </h3>
+                <h4
+                    class="text-white-60 text-24 font-baybayinsisil mb-10 lg:mb-18">
+                    When is it?
+                </h4>
+                <h4
+                    class="w-fit bg-yelloworange text-white text-24 font-medium px-10 py-6 mb-8">
+                    {{ page.date }}
+                </h4>
+                <h5 class="text-white-60 text-18 italic">
+                    *Doors open at <span class="underline">{{ page.doors_open }}</span>
+                </h5>
+            </div>
+            <div class="">
+                <h3 class="text-white font-medium text-32 lg:text-48">
+                    Where is it?
+                </h3>
+                <h4
+                    class="text-white-60 text-24 font-baybayinsisil mb-10 lg:mb-18">
+                    Where is it?
+                </h4>
+                <h4
+                    class="w-fit bg-yelloworange text-white text-24 font-medium px-10 py-6 mb-8">
+                    {{ page.location_main }}
+                </h4>
+                <h5 class="text-white-60 text-18 mb-10">
+                    {{ page.location_city }}
+                </h5>
+                <a href="{{ page.location_link|default:'#' }}" class="text-yelloworange flex items-center">
+                    <span class="font-bold text-18 pr-10">Show me directions</span>
+                    <svg
+                        width="23"
+                        height="8"
+                        viewBox="0 0 23 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.5677 0.226918C19.2917 0.180042 19 0.383168 19 0.706084V2.73733H1.99999C1.64062 2.73213 1.30207 2.91963 1.11978 3.23213C0.942698 3.54463 0.942698 3.93004 1.11978 4.24254C1.30207 4.55504 1.64062 4.74254 1.99999 4.73733H19V6.76859C19 7.20088 19.5208 7.41963 19.8229 7.11233L22.8594 4.08108C23.0469 3.88838 23.0469 3.58629 22.8594 3.39359L19.8229 0.362334C19.75 0.284209 19.6614 0.242542 19.5677 0.226918Z"
+                            fill="#FFAD39" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="md:w-1/2 lg:w-auto lg:max-w-850 pt-32 lg:pt-0 flex items-center">
+            {% image page.location_image original %}
+        </div>
+    </div>
+</div>
+
+<!-- Sponsors -->
+{% if page.sponsors %}
+    {% include 'home/_sponsors.html' %}
+{% endif %}
+
+<!-- Conduct -->
+{% include "home/_code_of_conduct.html" %}
 
 {% endblock content %}

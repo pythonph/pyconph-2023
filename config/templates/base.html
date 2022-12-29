@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/banner.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/tooltip.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
         <link rel="shortcut icon" href="{% static 'img/icon-logo.svg' %}">
 
         {% block extra_css %}
@@ -38,12 +39,12 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-
         {% block content %}{% endblock %}
         {% include "footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
 
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
