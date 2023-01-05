@@ -20,7 +20,7 @@
                         <img
                             src="{% static 'img/icon/icon-arrow-left.svg' %}" />
                     </button>
-                    <ul id="tab-scroller" class="nav nav-tabs-slider flex justify-start xl:justify-center items-start overflow-hidden category-list">
+                    <ul id="tab-scroller" class="nav-tabs-slider flex justify-start xl:justify-center items-start overflow-hidden category-list">
                         <li class="active">
                             <button
                                 class="filter-sponsor active"
@@ -50,12 +50,14 @@
             <div class="list-sponsor flex flex-wrap justify-center gap-x-15 md:gap-x-18 gap-y-70">
                 {% for sponsor in page.sponsors %}
                 <div
-                    class="item mix-blend-darken flex justify-center tooltip"
+                    class="item mix-blend-darken flex justify-center tooltip sponsor"
                     data-filter="{{ sponsor.sponsor_type.name.lower }}">
                     <a href="{{ sponsor.website_url }}">
                         <img src="{{ sponsor.logo.url }}" />
                     </a>
-                    <span class="tooltiptext">{{ sponsor.info }}</span>
+                    {% if sponsor.info %}
+                    <div class="tooltiptext">{{ sponsor.info }}</div>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

@@ -435,7 +435,7 @@ img {
 }
 
 .hidden {
-    display: none
+    display: none !important
 }
 
 .h-screen {
@@ -1236,4 +1236,8 @@ p {
 
 .category-list {
     list-style: none;
+}
+
+.sponsor img {
+    max-height: 80px;
 }
