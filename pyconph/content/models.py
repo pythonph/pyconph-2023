@@ -4,7 +4,6 @@ from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
 
 
-
 class ContentPage(Page):
     content_title = models.CharField(max_length=255)
     content_subtitle = models.CharField(max_length=255, blank=True)
@@ -14,5 +13,3 @@ class ContentPage(Page):
         FieldPanel('content_subtitle'),
         FieldPanel('content_body'),
     ]
- 
-    
