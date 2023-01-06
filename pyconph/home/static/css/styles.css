@@ -1241,3 +1241,9 @@ p {
 .sponsor img {
     max-height: 80px;
 }
+
+.grid-center-items {
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+}
