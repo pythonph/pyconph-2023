@@ -1,4 +1,6 @@
 {% load static wagtailcore_tags wagtailuserbar %}
+{% load wagtailcore_tags %}
+{% wagtail_site as current_site %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/banner.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/tooltip.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
         <link rel="shortcut icon" href="{% static 'img/icon-logo.svg' %}">
 
         {% block extra_css %}
@@ -39,12 +41,18 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+        <nav class="navbar bg-nileblue">
+            <a href="{% pageurl current_site.root_page %}" class="navbar-item">Home</a>
+            {% for menu_page in current_site.root_page.get_children.live.in_menu %}
+                <a href="{{ menu_page.url }}" class="navbar-item">{{ menu_page.title }}</a>
+            {% endfor %}
+        </nav>
         {% block content %}{% endblock %}
         {% include "footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
 
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
