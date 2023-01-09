@@ -56,7 +56,12 @@
                         <img src="{{ sponsor.logo.url }}" />
                     </a>
                     {% if sponsor.info %}
-                    <div class="tooltiptext">{{ sponsor.info }}</div>
+                    <div class="tooltiptext">
+                        {{ sponsor.info }}
+                        <a class="text-yelloworange font-medium" href="{{ sponsor.website_url }}">
+                            Learn more
+                        </a>
+                    </div>
                     {% endif %}
                 </div>
                 {% endfor %}
