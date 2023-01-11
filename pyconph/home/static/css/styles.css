@@ -1192,7 +1192,7 @@ p {
 
 @media (min-width:1280px) {
     .list-sponsor .item {
-        width: 16.666667%
+        width: unset;
     }
     .xl\:h-290 {
         height: 18.125rem
