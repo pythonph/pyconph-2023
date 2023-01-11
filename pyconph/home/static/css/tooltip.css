@@ -5,7 +5,7 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  min-width: 120px;
+  min-width: 200px;
   background-color: black;
   color: #fff;
   text-align: center;
