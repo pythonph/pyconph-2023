@@ -1241,3 +1241,13 @@ p {
 .sponsor img {
     max-height: 80px;
 }
+
+.sponsor-section {
+    position: relative;
+    z-index: 2;
+}
+
+.coc-section {
+    position: relative;
+    z-index: 1;
+}
