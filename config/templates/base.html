@@ -41,7 +41,7 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <nav class="navbar bg-nileblue {% if current_site != current_site.root_page %}visible{% endif %}">
+        <nav class="navbar bg-nileblue {% if request.path != '/' %}visible{% endif %}">
             <a href="{% pageurl current_site.root_page %}" class="navbar-item">Home</a>
             {% for menu_page in current_site.root_page.get_children.live.in_menu %}
                 <a href="{{ menu_page.url }}" class="navbar-item">{{ menu_page.title }}</a>
