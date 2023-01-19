@@ -9,7 +9,9 @@ function showHideNavBar() {
   if (window.pageYOffset > sticky) {
     navbar.classList.add("visible");
   } else {
-    navbar.classList.remove("visible");
+    if (location.pathname == "/") {
+      navbar.classList.remove("visible");
+    }
   }
 }
 
