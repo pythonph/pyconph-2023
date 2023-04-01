@@ -1,0 +1,2 @@
+var navbar=document.querySelector('.navbar');var sticky=navbar.offsetTop;function showHideNavBar(){if(window.pageYOffset>sticky){navbar.classList.add("visible");}else{if(location.pathname=="/"){navbar.classList.remove("visible");}}}
+window.onscroll=function(){showHideNavBar()};

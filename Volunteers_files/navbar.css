@@ -1,0 +1,1 @@
+.navbar{position:fixed;top:0;left:0;width:100%;height:50px;z-index:1;transform:translateY(-100%);transition:transform .3s ease-out;display:flex;justify-content:center;align-items:center}.navbar.bg-nileblue{background-color:rgb(26,40,81,.95)}.navbar.visible{transform:translateY(0)}.navbar-item{color:#fff;margin:20px;font-weight:bolder}
