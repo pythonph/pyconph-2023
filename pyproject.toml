@@ -5,8 +5,9 @@ description = ""
 authors = ["Zorex <zorex@brokerengine.com.au>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 wagtail = "^3.0.1"
+sentry-sdk = "^1.30.0"
 
 [tool.poetry.dev-dependencies]
 
