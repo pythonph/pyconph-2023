@@ -1,77 +1,13 @@
 {% load static %}
-<footer class="bg-woodsmoke">
-    <div class="max-w-1204 mx-auto px-15 2xl:px-0">
+<footer>
+    <div>
         {% if page.ticket_link %}
-        <div class="flex flex-col md:flex-row justify-between items-center border-b border-white-70 pt-40 pb-30">
-            <h3 class="text-white text-32 md:text-48 font-medium mb-25">
+        <div>
+            <h3>
                 Get your tickets now!
             </h3>
-            <a href="{{ page.ticket_link|default:'#' }}" target="_blank"
-                class="bg-yelloworange text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center mb-8">Buy
-                Tickets</a>
+            <a href="{{ page.ticket_link|default:'#' }}" target="_blank">Buy Tickets</a>
         </div>
         {% endif %}
-        <div class="pt-50 py-70 flex flex-col md:flex-row items-center md:items-start justify-between">
-            <div class="">
-                <h5 class="text-24 text-white-70 mb-10 text-center md:text-left">
-                    PyCon PH 2023
-                </h5>
-                <p class="text-white text-32 md:text-32 mr-15 font-tagalogdoctrina1593">
-                    Ug/nyn/
-                </p>
-                <h6 class="text-white-70 text-18 text-center md:text-left">
-                    (u•g•na•ya•n / connection)
-                </h6>
-            </div>
-            <div class="pt-40 md:pt-0">
-                <h5 class="text-18 text-white font-medium text-center md:text-left">
-                    Questions?
-                </h5>
-                <span class="text-white-70 text-14">Message us at
-                    <a class="underline font-medium" href="mailto:pycon@python.ph">pycon@python.ph</a></span>
-                <div class="pt-5">
-                    <span class="text-white-70 text-14 mt-50">
-                        This site is built using <a class="underline font-medium" href="https://www.djangoproject.com/">Django</a> and
-                        <a class="underline font-medium" href="https://wagtail.org/">Wagtail</a>.</span>
-                </div>
-            </div>
-            <div class="pt-40 md:pt-0 md:pr-50">
-                <h5 class="text-18 text-white font-medium mb-15 text-center md:text-left">
-                    Get Connected?
-                </h5>
-                <ul class="flex">
-                    <li>
-                        <a href="https://pythonph.slack.com" target="_blank">
-                            <img class="h-22 mr-18 opacity-70 hover:opacity-100"
-                                src="{% static 'img/icon/icon-slack.svg' %}" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/pyconph" target="_blank">
-                            <img class="h-22 mr-18 opacity-70 hover:opacity-100"
-                                src="{% static 'img/icon/icon-fb.svg' %}" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/pythonph" target="_blank">
-                            <img class="h-22 mr-18 opacity-70 hover:opacity-100"
-                                src="{% static 'img/icon/icon-github.svg' %}" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/pyconph" target="_blank">
-                            <img class="h-22 mr-18 opacity-70 hover:opacity-100"
-                                src="{% static 'img/icon/icon-twitter.svg' %}" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/pythonph/" target="_blank">
-                            <img class="h-24 opacity-70 hover:opacity-100"
-                                src="{% static 'img/icon/icon-instagram.svg' %}" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </div>
 </footer>

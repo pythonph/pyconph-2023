@@ -28,12 +28,10 @@
         <meta name="twitter:card" content="summary_large_image">
         
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/banner.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/tooltip.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
         <link rel="shortcut icon" href="{% static 'img/icon-logo.svg' %}">
-
+        <script src="https://cdn.tailwindcss.com"></script>
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -51,9 +49,7 @@
         {% include "footer.html" %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
-
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
         {% endblock %}

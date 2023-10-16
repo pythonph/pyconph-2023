@@ -1,29 +1,31 @@
+{% load static %}
 {% load wagtailimages_tags %}
 
-<div class="bg-yelloworange md:bg-img-4 bg-contain bg-bottom bg-no-repeat py-70 lg:py-125">
-    <div class="max-w-1204 mx-auto px-5 2xl:px-0">
-        <h2 class="text-cioccolato text-32 lg:text-48 font-medium text-center mb-15">
-            {{ page.speaker_title }}
-        </h2>
-        <p class="text-cioccolato-60 text-24 font-baybayinsisil font-bold text-center mb-10 lg:mb-32">
-            {{ page.speaker_subtitle }}
-        </p>
-        <div class="flex flex-wrap justify-center">
-            {% for speaker in page.speakers %}
-            <div class="w-full md:w-1/2 lg:w-1/4 px-10 py-12">
-                <div class="xl:h-290 overflow-hidden">
-                    {% image speaker.display_photo original class="w-full py-zoom-in" %}
-                </div>
-                <div class="pt-10">
-                    <h3 class="text-24 text-cioccolato font-medium">
-                        {{ speaker.full_name }}
-                    </h3>
-                    <h4 class="text-cioccolato-60 text-14 font-medium mb-5">
-                        {{ speaker.title }}
-                    </h4>
-                </div>
+<div class="pt-6">
+    <p class="text-2xl font-bold text-center">
+        {{ page.speaker_title }}
+    </p>
+    <p>
+        {{ page.speaker_subtitle }}
+    </p>
+    <div class="flex flex-row text-center">
+        {% for speaker in page.speakers %}
+        <div class="basis-1/3 mx-auto">
+            <div class="xl:max-h-380 mx-auto overflow-hidden">
+                {% image speaker.display_photo original class="w-full py-zoom-in" %}
             </div>
-            {% endfor %}
+            <div class="px-10 md:px-20 pt-5">
+                <h3 class="text-24 text-yelloworange font-medium">
+                    {{ speaker.full_name }}
+                </h3>
+                <h4 class="">
+                    {{ speaker.title }}
+                </h4>
+                <p class="text-cioccolato text-14">
+                    {{ speaker.introduction }}
+                </p>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
