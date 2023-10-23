@@ -1,13 +1,86 @@
 {% load static %}
-<footer>
-    <div>
-        {% if page.ticket_link %}
-        <div>
-            <h3>
-                Get your tickets now!
-            </h3>
-            <a href="{{ page.ticket_link|default:'#' }}" target="_blank">Buy Tickets</a>
+<footer class="py-50 bg-img-3 flex flex-col items-center justify-center">
+    <div class="relative w-full px-25 lg:px-0">
+        <div class="lg:w-870 mx-auto text-center">
+            <p class="font-baybayinsisil text-20 md:text-24 text-white">
+                Code of Conduct
+            </p>
+            <h2 class="font-medium text-48 md:text-80 text-white mb-20">
+                Code of Conduct
+            </h2>
+            <p class="text-14 md:text-16">
+                PyCon PH is a community conference intended for
+                collaboration in the developer community.
+            </p>
+            <p class="text-14 md:text-16">
+                We value the participation of each member of the Python
+                community and want all attendees to have an enjoyable
+                and fulfilling experience. Accordingly, all attendees
+                are expected to show respect and courtesy to other
+                attendees throughout the conference and at all
+                conference events, whether officially sponsored by
+                PythonPH, Inc. or not.
+            </p>
+            <p class="text-14 md:text-16">
+                To make clear what is expected, all delegates/attendees,
+                speakers, exhibitors, organizers and volunteers at any
+                PyCon event are required to conform to the following
+                Code of Conduct. Organizers will enforce this code
+                throughout the event.
+            </p>
+            <h3 class="text-24 md:text-32 text-white mb-20">License</h3>
+            <p class="text-14 md:text-16">
+                This Code of Conduct is based on the PyCon US 2015 CoC,
+                and is licensed under a Creative Commons Attribution 3.0
+                Unported License.
+            </p>
         </div>
-        {% endif %}
+        <div class="absolute right-90 -top-150 hidden md:block">
+            <img class="star" src="{% static 'img/constellation-11.svg' %}" alt="constellation" />
+        </div>
+        <div class="absolute left-50 bottom-0 hidden md:block">
+            <img class="star" src="{% static 'img/constellation-12.svg' %}" alt="constellation" />
+        </div>
     </div>
+    <div class="pt-125 pb-50">
+        <img class="w-full max-w-442" src="{% static 'img/pyconph2024.svg' %}" alt="Pycon PH 2024" />
+        <div class="flex flex-col md:flex-row justify-center items-center gap-20 mb-30">
+            <a href="#" class="no-underline text-32 text-yellow-4 uppercase hover:opacity-80">Buy Ticket</a>
+            <a href="#" class="no-underline text-32 text-white uppercase hover:opacity-80">Become A Sponsor</a>
+        </div>
+        <p class="text-white text-16 text-center max-w-325 mx-auto">
+            Message us at pycon@python.ph for questions and inquiries
+        </p>
+        <ul class="flex justify-center mb-20">
+            <li>
+                <a href="https://pythonph.slack.com" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-slack.svg' %}" alt="slack" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pyconph" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-facebook.svg' %}" alt="facebook" />
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/pythonph" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-github.svg' %}" alt="github" />
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/pyconph" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-twitter.svg' %}" alt="twitter" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/pythonph/" class="no-underline" target="_blank">
+                    <img class="h-24 hover:opacity-70" src="{% static 'img/icon/icon-instagram.svg' %}" alt="instagram" />
+                </a>
+            </li>
+        </ul>
+        <p class="text-center text-14">
+            This site is built using Django and Wagtail.
+        </p>
+    </div>
+    <script src="{% static 'js/app.js' %}"></script>
 </footer>

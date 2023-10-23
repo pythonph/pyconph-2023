@@ -18,20 +18,17 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta property="og:title" content="PyCon PH 2023" />
+        <meta property="og:title" content="PyCon PH 2024" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pycon.python.ph" />
         <meta property="og:image" content="https://pycon.python.ph/static/img/landing.png" />
-        <meta name="twitter:title" content="PyCon PH 2023">
+        <meta name="twitter:title" content="PyCon PH 2024">
         <meta name="twitter:description" content="The Python Conference (PyCon) is a volunteer-run, not-for-profit conference centered around the Python Programming Language.">
         <meta name="twitter:image" content="https://pycon.python.ph/static/img/landing.png">
         <meta name="twitter:card" content="summary_large_image">
         
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/banner.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
-        <link rel="shortcut icon" href="{% static 'img/icon-logo.svg' %}">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -39,12 +36,6 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <nav class="navbar bg-nileblue {% if request.path != '/' %}visible{% endif %}">
-            <a href="{% pageurl current_site.root_page %}" class="navbar-item">Home</a>
-            {% for menu_page in current_site.root_page.get_children.live.in_menu %}
-                <a href="{{ menu_page.url }}" class="navbar-item">{{ menu_page.title }}</a>
-            {% endfor %}
-        </nav>
         {% block content %}{% endblock %}
         {% include "footer.html" %}
 

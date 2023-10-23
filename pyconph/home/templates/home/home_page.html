@@ -1,68 +1,230 @@
 {% extends "base.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
-
+{% block body_class %}bg-blue-1{% endblock %}
 {% block content %}
-<main>
-    <div class="p-6 mx-auto items-center text-center">
-        <div>
-            <div class="text-3xl font-bold text-black">PyCon Philippines</div>
+
+<main class="">
+    <!-- -->
+    <div
+        class="relative w-full min-h-1570 bg-blue bg-img-1 z-0 p-25 flex justify-center items-start"
+    >
+        <div class="max-w-325 md:max-w-975 pt-70">
+            <p
+                class="uppercase font-firasanscondensed text-white text-16 text-center mb-0 md:mb-20"
+            >
+                Gabay / Guide
+            </p>
+            <p
+                class="text-yellow text-56 font-baybayinsisil text-center md:mb-15"
+            >
+                Gabay
+            </p>
+            <div
+                class="logo-shadow flex flex-col items-center max-w-590 block mx-auto"
+            >
+                <img
+                    src="{% static 'img/pycon.svg' %}"
+                    alt="Pycon PH 2024"
+                    class="w-290 md:w-full mb-25 md:mb-36"
+                />
+                <img
+                    src="{% static 'img/ph-2024.svg' %}"
+                    alt="Pycon PH 2024"
+                    class="mb-25 md:mb-36"
+                />
+            </div>
+            <div
+                class="flex flex-wrap justify-center gap-15 md:gap-25 mb-36 pt-10"
+            >
+                <p class="text-white text-24 text-center mb-10">
+                    February 2024
+                </p>
+                <p class="text-white text-24 text-center mb-10">
+                    Manila, Philippines
+                </p>
+            </div>
+            {% if page.ticket_link %}
+            <a
+                href="#"
+                class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
+            >
+                Get Tickets
+            </a>
+            {% endif %}
         </div>
-        <div class="p-2">
-            <p class="font-medium">
-                {{ page.date }}
-            </p>
-            <p class="font-medium">
-                {{ page.location_city }}
-            </p>
+        <div class="absolute right-1/4 -bottom-90 hidden lg:block">
+            <img
+                class="star"
+                src="{% static 'img/constellation-1.svg' %}"
+                alt="constellation"
+            />
         </div>
     </div>
-
-    <div class="flex">
-        {% if page.banner_link %}
-        <a href="{{ page.banner_link|default:'#' }}"
-            class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in">{{
-            page.banner_title }}</a>
-        {% endif %}
-        {% if page.ticket_link %}
-        <a href="{{ page.ticket_link|default:'#' }}"
-            class="bg-nileblue text-white text-24 font-medium rounded-full py-11 w-310 flex justify-center py-zoom-in">Buy
-            Tickets</a>
-        {% endif %}
+    <!-- What is PyCon? -->
+    <div class="relative pb-150 md:pb-300 overflow-x-hidden">
+        <div class="max-w-975 mx-auto relative px-25 lg:px-0 z-10">
+            <div class="pb-50">
+                <p
+                    class="font-baybayinsisil text-20 md:text-24 text-yellow"
+                >
+                    What is PyCon?
+                </p>
+                <h1
+                    class="text-48 md:text-80 text-white font-medium mb-20"
+                >
+                    What is PyCon?
+                </h1>
+                <h3
+                    class="text-24 md:text-32 text-white mb-20 lg:w-870"
+                >
+                    The largest gathering of Python developers in the
+                    Philippines with a global experience 🇵🇭🌎
+                </h3>
+                <div class="md:w-570">
+                    <p class="">
+                        The <a href="/">Python Conference (PyCon)</a> is
+                        a
+                        <a
+                            href="https://pycon-2023.python.ph/volunteers/"
+                            >volunteer-run,</a
+                        >
+                        not-for-profit conference centered around the
+                        Python Programming Language.
+                    </p>
+                    <p class="">
+                        It originated in the United States but is also
+                        held in many other countries that have active
+                        Python developer communities.
+                    </p>
+                    <p class="">
+                        In the Philippines, we've been organizing
+                        <a href="https://pycon-2023.python.ph/"
+                            >PyCon Philippines (PyCon PH)</a
+                        >
+                        annually since 2012.
+                    </p>
+                    <p class="">
+                        We bring in both foreign and local speakers from
+                        diverse backgrounds to share their knowledge and
+                        experience to our participants. This makes PyCon
+                        PH a global experience despite being a local
+                        one!
+                    </p>
+                </div>
+            </div>
+            <img
+                class="star"
+                src="{% static 'img/constellation-2.svg' %}"
+                alt="constellation"
+            />
+            <div class="flex flex-wrap gap-10 pt-10">
+                <span
+                    class="font-firasanscondensed text-white bg-blue-2 rounded-full px-11 py-4"
+                    >#gabay</span
+                >
+                <span
+                    class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
+                    >#pyconph2024</span
+                >
+                <span
+                    class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
+                    >#pyconph</span
+                >
+                <span
+                    class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
+                    >#pythonph</span
+                >
+            </div>
+        </div>
+        <!-- Photo Collage -->
+        <div
+            class="flex justify-center pt-50 lg:pt-0 lg:absolute -right-90 top-125 z-0"
+        >
+            <div class="flex items-center justify-end gap-20">
+                <div class="w-1/2 flex flex-col gap-20">
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-1.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-2.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-3.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-4.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-5.png' %}"
+                            alt=""
+                        />
+                    </div>
+                </div>
+                <div class="w-1/2 flex flex-col gap-20">
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-6.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-7.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-8.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-9.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-6.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="md:w-310 max-h-400">
+                        <img
+                            class="fade-in max-w-full max-h-full object-cover"
+                            src="{% static 'img/collage-7.png' %}"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
-
-<!-- About Pycon -->
-<div>
-    <div class="max-w-1204 mx-auto px-15 2xl:px-0">
-        {% for content in page.contents.all %}
-        {% include 'home/_content.html' with content=content %}
-        {% endfor %}
-    </div>
-</div>
-
-<!-- Keynote Speakers -->
-{% if page.keynote_speakers %}
-{% include 'home/_keynotes.html' %}
-{% endif %}
-
-<!-- Speakers -->
-{% if page.speakers %}
-{% include 'home/_speakers.html' %}
-{% endif %}
-
-<!-- Program Schedule -->
-{% if page.day1_events %}
-{% include 'home/_schedules.html' %}
-{% endif %}
-
-<!-- Event -->
-
-<!-- Sponsors -->
-{% if page.sponsors %}
-{% include 'home/_sponsors.html' %}
-{% endif %}
-
-<!-- Conduct -->
-{% include "home/_code_of_conduct.html" %}
 
 {% endblock content %}
