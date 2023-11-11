@@ -43,14 +43,34 @@
                     Manila, Philippines
                 </p>
             </div>
-            {% if page.ticket_link %}
-            <a
-                href="#"
-                class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
-            >
-                Get Tickets
-            </a>
-            {% endif %}
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-20 mb-30">
+                {% if page.ticket_link %}
+                <a
+                    href="{{ page.ticket_link }}"
+                    class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
+                >
+                    Get Tickets
+                </a>
+                {% endif %}
+                {% if page.cfp_link %}
+                <a
+                    href="{{ page.cfp_link }}"
+                    class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
+                >
+                    Call for Proposal
+                </a>
+                {% endif %}
+                {% if page.sponsor_link %}
+                <a
+                    href="{{ page.sponsor_link }}"
+                    class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
+                >
+                    Become a Sponsor
+                </a>
+                {% endif %}
+            </div>
+
         </div>
         <div class="absolute right-1/4 -bottom-90 hidden lg:block">
             <img

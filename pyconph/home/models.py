@@ -29,6 +29,8 @@ class HomePage(Page):
     time_start = models.TimeField()
 
     ticket_link = models.URLField(blank=True)
+    cfp_link = models.URLField(blank=True)
+    sponsor_link = models.URLField(blank=True)
 
     location_main = models.CharField(max_length=255)
     location_city = models.CharField(max_length=255)
@@ -56,7 +58,13 @@ class HomePage(Page):
     banner_link = models.URLField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel("ticket_link"),
+        FieldRowPanel(
+            [
+                FieldPanel("ticket_link"),
+                FieldPanel("cfp_link"),
+                FieldPanel("sponsor_link"),
+            ]
+        ),
         FieldRowPanel(
             [
                 FieldPanel("banner_title"),
