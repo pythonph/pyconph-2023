@@ -18,6 +18,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # False if not in os.environ because of casting above
 DEBUG = env("DEBUG")
 
+# SECURITY WARNING: define the correct hosts in production!
+ALLOWED_HOSTS = ["ph.pycon.org", "pycon-2024.python.ph", "pycon.python.ph"]
+
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = env("SECRET_KEY")
