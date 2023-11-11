@@ -20,6 +20,7 @@ class PageContent(Orderable, models.Model):
 
     image = models.ForeignKey("wagtailimages.Image", on_delete=models.CASCADE)
     image_position = models.CharField(choices=ImagePositions.choices, max_length=32)
+    is_subcontent = models.BooleanField(default=False)
 
 
 class HomePage(Page):

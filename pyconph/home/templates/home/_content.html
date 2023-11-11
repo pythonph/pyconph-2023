@@ -1,17 +1,19 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div class="p-6">
-    <div class="flex flex-row">
-        <div class="basis-1/2 mx-auto items-center">
-            <h2 class="text-2xl font-bold text-center">
-                {{ content.title }}
-            </h2>
-            <h3 class="pt-4">
-                {{ content.subtitle }}
-            </h3>
-            <div class="text-justify">
-                {{ content.body|richtext }}
-            </div>
-        </div>
+<div>
+    {% if content.is_subcontent %}
+    <h3 class="text-24 md:text-32 text-white mb-20">
+        {{ content.title}}
+    </h3>
+    {% else %}
+    <p class="font-baybayinsisil text-20 md:text-24 text-yellow">
+        {{ content.subtitle}}
+    </p>
+    <h1 class="text-48 md:text-80 text-white font-medium mb-20 md:w-570">
+        {{ content.title }}
+    </h1>
+    {% endif %}
+    <div class="md:w-570">
+        {{ content.body|richtext }}
     </div>
 </div>

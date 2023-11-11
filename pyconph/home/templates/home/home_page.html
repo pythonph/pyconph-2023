@@ -60,82 +60,44 @@
             />
         </div>
     </div>
+
     <!-- What is PyCon? -->
     <div class="relative pb-150 md:pb-300 overflow-x-hidden overflow-y-hidden">
         <div class="max-w-975 mx-auto relative px-25 lg:px-0 z-10">
             <div class="pb-50">
-                <p
-                    class="font-baybayinsisil text-20 md:text-24 text-yellow"
-                >
-                    What is PyCon?
-                </p>
-                <h1
-                    class="text-48 md:text-80 text-white font-medium mb-20"
-                >
-                    What is PyCon?
-                </h1>
-                <h3
-                    class="text-24 md:text-32 text-white mb-20 lg:w-870"
-                >
-                    The largest gathering of Python developers in the
-                    Philippines with a global experience 🇵🇭🌎
-                </h3>
-                <div class="md:w-570">
-                    <p class="">
-                        The <a href="/">Python Conference (PyCon)</a> is
-                        a
-                        <a
-                            href="https://pycon-2023.python.ph/volunteers/"
-                            >volunteer-run,</a
+                {% for content in page.contents.all %}
+                {% include 'home/_content.html' with content=content %}
+                {% if forloop.first %}
+                    <img
+                        class="star"
+                        src="{% static 'img/constellation-2.svg' %}"
+                        alt="constellation"
+                    />
+                {% endif %}
+                {% if content.title == "PyCon Philippines 2024" %}
+                    <div class="flex flex-wrap gap-10 pt-10">
+                        <span
+                            class="font-firasanscondensed text-white bg-blue-2 rounded-full px-11 py-4"
+                            >#gabay</span
                         >
-                        not-for-profit conference centered around the
-                        Python Programming Language.
-                    </p>
-                    <p class="">
-                        It originated in the United States but is also
-                        held in many other countries that have active
-                        Python developer communities.
-                    </p>
-                    <p class="">
-                        In the Philippines, we've been organizing
-                        <a href="https://pycon-2023.python.ph/"
-                            >PyCon Philippines (PyCon PH)</a
+                        <span
+                            class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
+                            >#pyconph2024</span
                         >
-                        annually since 2012.
-                    </p>
-                    <p class="">
-                        We bring in both foreign and local speakers from
-                        diverse backgrounds to share their knowledge and
-                        experience to our participants. This makes PyCon
-                        PH a global experience despite being a local
-                        one!
-                    </p>
-                </div>
-            </div>
-            <img
-                class="star"
-                src="{% static 'img/constellation-2.svg' %}"
-                alt="constellation"
-            />
-            <div class="flex flex-wrap gap-10 pt-10">
-                <span
-                    class="font-firasanscondensed text-white bg-blue-2 rounded-full px-11 py-4"
-                    >#gabay</span
-                >
-                <span
-                    class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
-                    >#pyconph2024</span
-                >
-                <span
-                    class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
-                    >#pyconph</span
-                >
-                <span
-                    class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
-                    >#pythonph</span
-                >
+                        <span
+                            class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
+                            >#pyconph</span
+                        >
+                        <span
+                            class="font-firasanscondensed text-18 text-white bg-blue-2 rounded-full px-11 py-4"
+                            >#pythonph</span
+                        >
+                    </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
+
         <!-- Photo Collage -->
         <div
             class="flex justify-center pt-50 lg:pt-0 lg:absolute -right-90 top-125 z-0"
@@ -223,6 +185,109 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="relative md:pb-300">
+        <div class="max-w-975 mx-auto px-25 lg:px-0">
+            <p
+                class="font-baybayinsisil text-20 md:text-24 text-yellow"
+            >
+                What to expect this year?
+            </p>
+            <h2 class="font-medium text-48 md:text-80 text-white mb-20">
+                What to expect this year?
+            </h2>
+            <p
+                class="text-18 md:text-32 text-white-80 md:text-white md:mb-0"
+            >
+                We're finally meeting face-to-face! 🙌
+            </p>
+            <p class="text-18 md:text-32 text-white-80 md:text-white">
+                The conference will be a 2-day in-person event in Manila, Philippines.
+            </p>
+            <div
+                class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10"
+            >
+                <div class="w-full md:w-1/3 mb-32">
+                    <p class="text-24 text-yellow mb-0">Activities</p>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <p class="text-white-80 text-16">
+                        There will be talks, workshops, tutorials,
+                        lightning talks, fun group activities, book
+                        giveaways and more!
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row pt-30 pb-10">
+                <div class="w-full md:w-1/3 text-24 text-yellow mb-32">
+                    Content
+                </div>
+                <div class="w-full md:w-2/3">
+                    <ul
+                        class="md:columns-2 list-disc px-20 md:px-40 gap-45"
+                    >
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Beginner & General Programming
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Backend/DevOps
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Machine Learning & Artificial Intelligence
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Distributed Computing
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Personal & Professional Development
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Platform/Framework/Architecture, Security
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Data Science/Analysis/Engineering
+                        </li>
+                        <li
+                            class="text-16 text-white-80 px-10 py-5 break-words"
+                        >
+                            Web/Mobile
+                        </li>
+                        <li>
+                            Practices
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="absolute left-0 bottom-0 hidden md:block">
+            <img
+                class="star"
+                src="{% static 'img/constellation-3.svg' %}"
+                alt="constellation"
+            />
+        </div>
+        <div class="absolute right-90 bottom-200 hidden md:block">
+            <img
+                class="star"
+                src="{% static 'img/constellation-4.svg' %}"
+                alt="constellation"
+            />
         </div>
     </div>
 </main>
