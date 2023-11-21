@@ -42,8 +42,10 @@
             <img class="star" src="{% static 'img/constellation-12.svg' %}" alt="constellation" />
         </div>
     </div>
-    <div class="pt-125 pb-50">
+    <div class="pt-125">
         <img class="w-full max-w-442" src="{% static 'img/pyconph2024.svg' %}" alt="Pycon PH 2024" />
+    </div>
+    <div class="pb-50">
         <div class="flex flex-col md:flex-row justify-center items-center gap-20 mb-30">
             {% if page.ticket_link %}
                 <a href="{{ page.ticket_link }}" class="no-underline text-32 text-yellow-4 uppercase hover:opacity-80">Buy Ticket</a>
