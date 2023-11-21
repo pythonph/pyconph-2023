@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to DigitalOcean Droplet
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}:${{ secrets.PASSWORD }}@${{ secrets.DROPLET_IP }} 'cd /root/pyconph-2024 && git pull origin main'
