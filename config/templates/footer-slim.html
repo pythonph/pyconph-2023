@@ -1,0 +1,50 @@
+{% load static %}
+<footer class="py-50 bg-img-3 flex flex-col items-center justify-center">
+    <div class="relative w-full px-25 lg:px-0">
+        <div class="lg:w-870 mx-auto text-center">
+        </div>
+        <div class="absolute right-90 -top-150 hidden md:block">
+            <img class="star" src="{% static 'img/constellation-11.svg' %}" alt="constellation" />
+        </div>
+        <div class="absolute left-50 bottom-0 hidden md:block">
+            <img class="star" src="{% static 'img/constellation-12.svg' %}" alt="constellation" />
+        </div>
+    </div>
+    <div class="pt-125 pb-50">
+        <img class="w-full max-w-442" src="{% static 'img/pyconph2024.svg' %}" alt="Pycon PH 2024" />
+        <p class="text-white text-16 text-center max-w-325 mx-auto">
+            Message us at pycon@python.ph for questions and inquiries
+        </p>
+        <ul class="flex justify-center mb-20">
+            <li>
+                <a href="https://pythonph.slack.com" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-slack.svg' %}" alt="slack" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/pyconph" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-facebook.svg' %}" alt="facebook" />
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/pythonph" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-github.svg' %}" alt="github" />
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/pyconph" class="no-underline" target="_blank">
+                    <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-twitter.svg' %}" alt="twitter" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/pythonph/" class="no-underline" target="_blank">
+                    <img class="h-24 hover:opacity-70" src="{% static 'img/icon/icon-instagram.svg' %}" alt="instagram" />
+                </a>
+            </li>
+        </ul>
+        <p class="text-center text-14">
+            This site is built using Django and Wagtail.
+        </p>
+    </div>
+    <script src="{% static 'js/app.js' %}"></script>
+</footer>

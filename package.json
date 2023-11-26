@@ -1,0 +1,14 @@
+{
+  "name": "pyconph",
+  "version": "1.0.0",
+  "description": "This project serves as a boilerplate for PyCon Philippines' websites. It provides a starting point for building a website for the annual PyCon Philippines conference, as well as other PyCon-related events and initiatives.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "twbuild": "npx tailwindcss -i ./config/static/css/src/app.css -o ./config/static/css/app.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

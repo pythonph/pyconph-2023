@@ -1,5 +1,7 @@
 FROM python:3.10
 
+ENV PYTHONUNBUFFERED=1
+
 RUN mkdir -p /usr/src/app
 
 COPY requirements.txt /usr/src/app

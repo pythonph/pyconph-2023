@@ -1,34 +1,39 @@
 {% extends "base.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}bg-blue-1{% endblock %}
 
 {% block extra_css %}
 <style type="text/css">
 h1, h2, h3, h4 {
-  --tw-text-opacity: 1;
-  color: rgb(74 48 10 / var(--tw-text-opacity));
+  {% comment %} color: #FFCA50 !important; {% endcomment %}
+  margin-top: 32px;
 }
 ul > li {
   font-size: 1.125rem;
   line-height: 1.293rem;
   color: rgba(74,48,10,.6);
 }
-
+p {
+    font-size: 1rem;
+}
 </style>
 {% endblock %}
 
 {% block content %}
-{% load static %}
-<div class="pt-90 bg-bianca bg-img-8 bg-no-repeat bg-bottom bg-contain subpage-content" id="conduct">
-    <div class="max-w-1204 mx-auto px-15 2xl:px-0 relative pb-90">
+{% include "content/_navbar.html" %}
+
+<div class="mx-auto px-12 py-32" style="max-width: 1204px">
+    <div class="mx-auto px-15 2xl:px-0 relative pb-90">
         <div class="mb-32">
-            <h3 class="text-cioccolato text-32 lg:text-48 font-medium">
+            <h3 class="text-white text-32 lg:text-48 font-medium">
                 {{ page.content_title }}
             </h3>
-            <h4 class="text-cioccolato-60 text-24 font-baybayinsisil mb-10 lg:mb-32">
+            {% if page.content_subtitle %}
+            <h4 class="text-white text-24 font-baybayinsisil mb-10 lg:mb-32">
                 {{ page.content_subtitle }}
             </h4>
+            {% endif %}
             <p>
             {{ page.content_body|richtext }}
             </p>
@@ -36,3 +41,7 @@ ul > li {
     </div>
 </div>
 {% endblock content %}
+
+{% block footer %}
+    {% include "footer-slim.html" %}
+{% endblock footer %}

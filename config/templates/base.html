@@ -1,5 +1,5 @@
 {% load static wagtailcore_tags wagtailuserbar %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags compress %}
 {% wagtail_site as current_site %}
 
 <!DOCTYPE html>
@@ -28,8 +28,12 @@
         <meta name="twitter:card" content="summary_large_image">
         
         {# Global stylesheets #}
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/pycon.css' %}" />
+        {% compress css %}
+            <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/pycon.css' %}" />
+        {% endcompress %}
+
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -38,7 +42,10 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
         {% block content %}{% endblock %}
-        {% include "footer.html" %}
+
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>

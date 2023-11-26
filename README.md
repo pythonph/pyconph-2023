@@ -10,12 +10,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 - [>= Python 3.11](https://www.python.org/)
 - [Poetry](https://python-poetry.org/)
+- [Node/NPM](https://nodejs.org/en/)
 
 ### Installing
 
 #### Dependency management
 
-For the dependency management, we use poetry. To install poetry:
+For python package dependency management, we use poetry. To install poetry:
 
 ##### Linux, macOS, Windows (WSL)
 
@@ -47,6 +48,20 @@ python manage.py migrate
 
 ```bash
 python manage.py runserver
+```
+
+#### Tailwind
+
+To work with styling and tailwind, you need to have Node/NPM installed. Install packages:
+
+```bash
+npm install
+```
+
+Then run tailwind build watcher:
+
+```bash
+npm run twbuild
 ```
 
 ### Coding Style
@@ -123,7 +138,7 @@ and integrate systems more effectively.
 ### Authors
 
 - [@zorexsalvo](https://github.com/zorexsalvo)
-- [@dfrb](https://github.com/dfrb)
+- [@drfb](https://github.com/drfb)
 - [@pandabearcoder](https://github.com/pandabearcoder)
 
 See also the list of [contributors](https://github.com/pythonph/pyconph/contributors) who participated in this project.

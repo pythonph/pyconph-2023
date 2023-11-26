@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "compressor",
+    "django_extensions",
 
     "pyconph.content",
     "pyconph.home",
@@ -153,6 +155,20 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+
+# Compressor
+# https://django-compressor.readthedocs.io/en/stable/index.html
+
+COMPRESS_ROOT = STATIC_ROOT
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
 
 
 # Wagtail settings
