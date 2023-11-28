@@ -1,60 +1,383 @@
-<div class="bg-bianca bg-img-5 bg-no-repeat bg-bottom xl:bg-contain bg-sm-img-b-4 xl:bg-img-b-4 py-50 md:py-90">
-    <div class="max-w-1204 mx-auto px-15 2xl:px-0">
-        <h3 class="text-cioccolato text-32 lg:text-48 font-medium text-center">
-            {{ page.schedule_title }}
-        </h3>
-        <h4 class="text-cioccolato-60 text-24 font-baybayinsisil font-bold text-center mb-10 lg:mb-32">
-            {{ page.schedule_subtitle }}
-        </h4>
+{% load static %}
+
+<div class="relative pb-150 md:pb-300">
+    <div class="max-w-975 mx-auto px-25 lg:px-0">
+        <p class="font-baybayinsisil text-20 md:text-24 text-yellow">
+            Program Schedule
+        </p>
+        <h2 class="font-medium text-48 md:text-80 text-white mb-20">
+            Program Schedule
+        </h2>
         <div class="py-32">
-            <div
-                class="tab flex items-center justify-center gap-5 mb-40">
-                <button
-                    class="tablinks active px-20 w-172 md:w-310 text-center text-16 md:text-24 font-medium rounded-full py-11 flex justify-center"
-                    onclick="toggleTab(event, 'first')">
-                    1st Day - {{ page.day1_date }}
-                </button>
-                <button
-                    class="tablinks px-20 w-172 md:w-310 text-center text-16 md:text-24 font-medium rounded-full py-11 flex justify-center"
-                    onclick="toggleTab(event, 'second')">
-                    2nd Day - {{ page.day2_date }}
-                </button>
-            </div>
-
-            <div
-                class="hidden md:flex h-48 border-cioccolato border-b border-t items-center">
-                <div
-                    class="w-2/12 px-10 text-cioccolato-60 text-16 font-medium text-left">
-                    Time
-                </div>
-                <div
-                    class="w-4/12 text-cioccolato-60 text-16 font-medium text-left px-10">
-                    Session
-                </div>
-                <div
-                    class="w-3/12 text-cioccolato-60 text-16 font-medium text-left px-10">
-                    Speaker
-                </div>
-                <div
-                    class="w-3/12 text-cioccolato-60 text-16 font-medium text-left px-10">
-                    Stage
+            <div class="bg-blue-1 pt-10 sticky top-0">
+                <div class="tab flex items-center justify-start ux">
+                    <button class="tablinks active px-20 h-80 w-175 text-center text-16 text-32 py-11"
+                        onclick="toggleTab(event, 'first')">
+                        Day 1
+                    </button>
+                    <button class="tablinks px-20 h-80 w-175 text-center text-16 text-32 py-11"
+                        onclick="toggleTab(event, 'second')">
+                        Day 2
+                    </button>
                 </div>
             </div>
-
             <div id="tab-contents">
-                <div id="first" class="tabcontent block md:py-25">
-                    {% for event in page.day1_events %}
-                        {% include 'home/_schedule_detail.html' with event=event %}
-                    {% endfor %}
+                <div id="first" class="tabcontent block">
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                8:00 am - 9:00 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Registration
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                9:00 am - 9:30 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Opening Remarks
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                9:30 am - 10:30 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Keynote 1
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                10:30 am - 10:45 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Break
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                10:45 am - 11:30 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 45 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10"">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                11:30 am - 12:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                12:00 pm - 1:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Group Lunch (General Attendees)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                1:00 pm - 1:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                1:30 pm - 2:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                2:00 pm - 3:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Panel Dicussion: "Python in the Philippines: Addressing Community Challenges with Industry Support"
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                3:00 pm - 3:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Break
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                3:30 pm - 4:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                4:00 pm - 4:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                4:30 pm - 5:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Closing Remarks and Announcements for Day 1
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
                 </div>
-                <div id="second" class="tabcontent md:py-25 hidden">
-                    {% for event in page.day2_events %}
-                        {% include 'home/_schedule_detail.html' with event=event %}
-                    {% endfor %}
+
+                <div id="second" class="tabcontent hidden">
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                8:00 am - 9:00 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Registration
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                9:00 am - 9:30 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                -
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                9:30 am - 10:30 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                -
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                10:30 am - 10:45 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Break
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                10:45 am - 11:30 am
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 45 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10"">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                11:30 am - 12:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                12:00 pm - 1:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Group Lunch (General Attendees)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                1:00 pm - 1:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                1:30 pm - 2:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                2:00 pm - 3:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                -
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                3:00 pm - 3:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Break
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                3:30 pm - 4:00 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                4:00 pm - 4:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                Regular Talk (1 talk, 30 minutes)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row border-b border-white-20 pt-30 pb-10">
+                        <div class="w-full md:w-1/4 text-24 text-yellow pr-20">
+                            <p class="text-14 text-white">
+                                4:30 pm - 5:30 pm
+                            </p>
+                        </div>
+                        <div class="w-full md:w-3/4">
+                            <p class="text-24 md:text-32 text-white">
+                                -
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr
-                class="border-cioccolato border-b-1 w-full my-10 md:hidden" />
         </div>
+
+        <p class="text-16 md:text-32 text-white-80 md:text-white">
+            Note: This is a working schedule and is subject to change. Please check back regularly for updates and final confirmations.
+        </p>
+    </div>
+    <div class="absolute left-96 -top-225 hidden md:block">
+        <img class="star" src="{% static 'img/constellation-8.svg' %}" alt="constellation" />
     </div>
 </div>
