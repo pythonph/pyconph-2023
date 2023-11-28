@@ -1,0 +1,81 @@
+{% load static %}
+
+<header class="w-full absolute top-0 left-0 p-25 z-50">
+    <nav>
+        <div class="w-full flex justify-between">
+            <div></div>
+            <button class="toggle-menu focus:outline-none focus:shadow-none">
+                <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0.0493164 7.52051H24.0493V8.48051H0.0493164V7.52051Z" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0.0493164 0.319824H24.0493V1.27982H0.0493164V0.319824Z" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24.0493 15.6822H0.0493164V14.7222H24.0493V15.6822Z" fill="white" />
+                </svg>
+            </button>
+        </div>
+        <div
+            class="nav-menu transition ease duration-500 fixed z-50 left-0 top-0 w-full h-screen bg-blue-1 transform -translate-x-full p-25 flex flex-col justify-center">
+            <div class="w-full flex justify-between absolute top-0 left-0 p-25">
+                <a href="/">
+                    <img src="{% static 'img/icon/icon-logo.svg' %}" alt="Pycon PH 2024" />
+                </a>
+                <button class="toggle-menu focus:outline-none focus:shadow-none">
+                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M20.3493 20.9799L3.06885 3.69945L3.74767 3.02063L21.0281 20.301L20.3493 20.9799Z"
+                            fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3.06885 20.301L20.3493 3.02063L21.0281 3.69945L3.74767 20.9799L3.06885 20.301Z"
+                            fill="white" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="mb-15">
+                {% for page in page.get_children %}
+                <li class="text-center mb-10">
+                    <a href="{{ page.url }}" class="no-underline text-24 md:text-48 text-white font-medium hover:opacity-80">{{ page.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <p class="text-16 text-white text-center mb-30 font-fira">
+                Message us at pycon@python.ph for questions and
+                inquiries
+            </p>
+            <ul class="flex justify-center">
+                <li>
+                    <a href="https://discord.gg/nuWfkhR4vM" class="no-underline" target="_blank">
+                        <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-discord.svg' %}"
+                            alt="discord" />
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.facebook.com/pyconph" target="_blank">
+                        <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-facebook.svg' %}"
+                            alt="facebook" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/pythonph" target="_blank">
+                        <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-github.svg' %}"
+                            alt="github" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/pyconph" target="_blank">
+                        <img class="h-22 mr-18 hover:opacity-70" src="{% static 'img/icon/icon-twitter.svg' %}"
+                            alt="twiter" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/pythonph/" target="_blank">
+                        <img class="h-24 hover:opacity-70" src="{% static 'img/icon/icon-instagram.svg' %}"
+                            alt="instagram" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
