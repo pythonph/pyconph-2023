@@ -2,7 +2,9 @@
     {% with parent=page.get_parent %}
         <div class="py-2"><a href="{{ parent.url }}" class="text-[#FFCA50] no-underline font-bold">{{ parent.title }}</a></div>
         {% for page in parent.get_children %}
-            <div class="py-2"><a href="{{ page.url }}" class="text-[#FFCA50] no-underline font-bold">{{ page.title }}</a></div>
+            {% if page.show_in_menus and page.live %}
+                <div class="py-2"><a href="{{ page.url }}" class="text-[#FFCA50] no-underline font-bold">{{ page.title }}</a></div>
+            {% endif %}
         {% endfor %}
     {% endwith %}
 </div>
