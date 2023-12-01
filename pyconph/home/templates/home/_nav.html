@@ -34,9 +34,11 @@
             </div>
             <ul class="mb-15">
                 {% for page in page.get_children %}
-                <li class="text-center mb-10">
-                    <a href="{{ page.url }}" class="no-underline text-24 md:text-48 text-white font-medium hover:opacity-80">{{ page.title }}</a>
-                </li>
+                    {% if page.show_in_menus and page.live %}
+                    <li class="text-center mb-10">
+                        <a href="{{ page.url }}" class="no-underline text-24 md:text-48 text-white font-medium hover:opacity-80">{{ page.title }}</a>
+                    </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
             <p class="text-16 text-white text-center mb-30 font-fira">
