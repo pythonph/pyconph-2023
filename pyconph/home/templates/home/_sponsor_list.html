@@ -1,0 +1,62 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="relative md:pb-300 bg-img-2 md:pt-125">
+  <div class="flex flex-col md:flex-row">
+    <div
+      class="w-full md:w-1/2 lg:w-5/12 md:sticky top-0 h-full overflow-y-auto flex flex-col md:justify-end md:items-end pl-25 lg:pl-0"
+    >
+      <div class="md:w-360">
+        <p class="font-baybayinsisil text-20 md:text-24 text-yellow">
+          Sponsors
+        </p>
+        <h2 class="font-medium text-48 md:text-80 text-white mb-20">
+          Sponsors
+        </h2>
+        <h3 class="text-18 md:text-24 text-white mb-20">
+          This event was made possible with the help of our generous sponsors
+        </h3>
+        <a
+          href="#"
+          class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 text-blue text-24 text-center w-290 h-70 rounded-full btn-shadow flex justify-center items-center mb-30"
+          >Become a Sponsor</a
+        >
+      </div>
+    </div>
+    <div class="w-full md:w-1/2 lg:w-7/12 pl-20">
+      {% for sponsor_type in page.sponsor_types %}
+      <div class="">
+        <h3
+          class="text-24 md:text-32 text-white border-b border-white-20 pb-20"
+        >
+          {{ sponsor_type }}
+        </h3>
+        <div
+          class="flex flex-wrap justify-start items-center gap-20 pt-34 pb-50"
+        >
+          {% for sponsor in page.sponsors %}
+          {% if sponsor.sponsor_type == sponsor_type %}
+          <div class="h-120 w-280 flex justify-center bg-white rounded-[8px]">
+            <div class="p-25">
+              <img
+                class="w-full h-full object-contain"
+                title="{{ sponsor.name }}"
+                src="{{ sponsor.logo.url }}"
+                alt="{{ sponsor.name }}"
+              />
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="absolute left-0 -top-150 hidden md:block">
+    <img
+      class="star"
+      src="{% static 'img/constellation-10.svg' %}"
+      alt="constellation"
+    />
+  </div>
+</div>
