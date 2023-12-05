@@ -15,11 +15,13 @@
         <h3 class="text-18 md:text-24 text-white mb-20">
           This event was made possible with the help of our generous sponsors
         </h3>
+        {% if page.sponsor_link %}
         <a
-          href="#"
+          href="{{ page.sponsor_link }}"
           class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 text-blue text-24 text-center w-290 h-70 rounded-full btn-shadow flex justify-center items-center mb-30"
           >Become a Sponsor</a
         >
+        {% endif %}
       </div>
     </div>
     <div class="w-full md:w-1/2 lg:w-7/12 pl-20">

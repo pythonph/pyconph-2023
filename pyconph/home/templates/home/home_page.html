@@ -61,13 +61,15 @@
                     Become a Speaker
                 </a>
                 {% endif %}
-                {% if page.sponsor_link %}
-                <a
-                    href="{{ page.sponsor_link }}"
-                    class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
-                >
-                    Become a Sponsor
-                </a>
+                {% if not page.cfp_link or not page.ticket_link %}
+                    {% if page.sponsor_link %}
+                    <a
+                        href="{{ page.sponsor_link }}"
+                        class="no-underline bg-yellow-1 hover:bg-yellow-3 border-yellow-2 font-medium text-blue text-24 text-center w-280 py-17 rounded-full btn-shadow block mx-auto"
+                    >
+                        Become a Sponsor
+                    </a>
+                    {% endif %}
                 {% endif %}
             </div>
 

@@ -61,8 +61,10 @@
             {% if page.cfp_link %}
                 <a href="{{ page.cfp_link }}" class="no-underline text-32 text-yellow-4 uppercase hover:opacity-80">Become a Speaker</a>
             {% endif %}
-            {% if page.sponsor_link %}
-                <a href="{{ page.sponsor_link }}" class="no-underline text-32 text-white uppercase hover:opacity-80">Become A Sponsor</a>
+            {% if not page.cfp_link or not page.ticket_link %}
+                {% if page.sponsor_link %}
+                    <a href="{{ page.sponsor_link }}" class="no-underline text-32 text-white uppercase hover:opacity-80">Become A Sponsor</a>
+                {% endif %}
             {% endif %}
         </div>
         <p class="text-white text-16 text-center max-w-325 mx-auto">
