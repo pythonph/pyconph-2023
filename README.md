@@ -140,9 +140,10 @@ and integrate systems more effectively.
 - [@zorexsalvo](https://github.com/zorexsalvo)
 - [@drfb](https://github.com/drfb)
 - [@pandabearcoder](https://github.com/pandabearcoder)
+- [@anjlapastora](https://github.com/anjlapastora)
 - [@EstopaceMA](https://github.com/EstopaceMA)
 
-See also the list of [contributors](https://github.com/pythonph/pyconph/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/pythonph/pyconph-2024/contributors) who participated in this project.
 
 ## License
 
