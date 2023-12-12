@@ -19,3 +19,12 @@ h4 {
 .bg-img-3 {
     background-position: bottom !important;
 }
+
+
+.splide__arrows {
+    display: none !important;
+}
+
+.splide__slide--clone {
+    display: none !important;
+}
