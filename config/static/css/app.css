@@ -1053,3 +1053,7 @@ video {
     padding-right: 0px;
   }
 }
+
+.keynote {
+  pointer-events: none;
+}
