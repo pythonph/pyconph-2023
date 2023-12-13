@@ -20,11 +20,18 @@ h4 {
     background-position: bottom !important;
 }
 
-
 .splide__arrows {
     display: none !important;
 }
 
 .splide__slide--clone {
     display: none !important;
+}
+
+.keynote:hover {
+    pointer-events: none !important;
+}
+
+.keynote {
+    pointer-events: none !important;
 }
