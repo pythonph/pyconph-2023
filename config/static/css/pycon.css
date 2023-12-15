@@ -20,11 +20,11 @@ h4 {
     background-position: bottom !important;
 }
 
-.splide__arrows {
+.keynote .splide__arrows {
     display: none !important;
 }
 
-.splide__slide--clone {
+.keynote .splide__slide--clone {
     display: none !important;
 }
 
@@ -33,5 +33,21 @@ h4 {
 }
 
 .keynote {
+    pointer-events: none !important;
+}
+
+.speaker .splide__arrows {
+    display: none !important;
+}
+
+.speaker .splide__slide--clone {
+    display: none !important;
+}
+
+.speaker:hover {
+    pointer-events: none !important;
+}
+
+.speaker {
     pointer-events: none !important;
 }

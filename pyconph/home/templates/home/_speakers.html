@@ -1,31 +1,56 @@
 {% load static %}
 {% load wagtailimages_tags %}
 
-<div class="pt-6">
-    <p class="text-2xl font-bold text-center">
-        {{ page.speaker_title }}
-    </p>
-    <p>
-        {{ page.speaker_subtitle }}
-    </p>
-    <div class="flex flex-row text-center">
-        {% for speaker in page.speakers %}
-        <div class="basis-1/3 mx-auto">
-            <div class="xl:max-h-380 mx-auto overflow-hidden">
-                {% image speaker.display_photo original class="w-full py-zoom-in" %}
-            </div>
-            <div class="px-10 md:px-20 pt-5">
-                <h3 class="text-24 text-yelloworange font-medium">
-                    {{ speaker.full_name }}
-                </h3>
-                <h4 class="">
-                    {{ speaker.title }}
-                </h4>
-                <p class="text-cioccolato text-14">
-                    {{ speaker.introduction }}
-                </p>
+<div class="relative pb-200 md:pb-300 speaker">
+    <div class="max-w-975 mx-auto px-25 lg:px-0">
+        <p
+            class="font-baybayinsisil text-20 md:text-24 text-yellow"
+        >
+            {{ page.speaker_subtitle }}
+        </p>
+        <h2 class="font-medium text-48 md:text-80 text-white mb-20">
+            {{ page.speaker_title }}
+        </h2>
+        <h3 class="text-24 md:text-32 text-white mb-50">
+            Discover our speakers for PyCon Philippines 2024
+        </h3>
+    </div>
+    <div class="">
+        <div class="splide slider2">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for speaker in page.speakers.all %}
+                    <li class="splide__slide">
+                        <img
+                            src="static/img/speaker-1.png"
+                            alt=""
+                        />
+                        <p
+                            class="text-center text-24 text-white mb-10 pt-20"
+                        >
+                            {{ speaker.first_name }} {{ speaker.last_name }}
+                        </p>
+                        <p
+                            class="text-center text-24 text-white-80"
+                        >
+                            {{ speaker.title }}
+                        </p>
+                        <p
+                            class="text-center text-16 text-white-80"
+                        >
+                            {{ speaker.introduction }}
+                        </p>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
-        {% endfor %}
+    </div>
+    <div class="absolute right-90 -top-102 hidden md:block">
+        <img
+            class="star"
+            src="{% static 'img/constellation-7.svg' %}"
+            alt="constellation"
+        />
     </div>
 </div>

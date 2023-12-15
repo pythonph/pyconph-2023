@@ -30,8 +30,9 @@
         {# Global stylesheets #}
         {% compress css %}
             <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-            <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+            <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}" /> -->
             <link rel="stylesheet" href="{% static 'css/pycon.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
         {% endcompress %}
 
         {% block extra_css %}
@@ -48,8 +49,9 @@
         {% endblock %}
 
         {# Global javascript #}
-        <script src="{% static 'js/app.js' %}"></script>
+        <!-- <script src="{% static 'js/app.js' %}"></script> -->
         <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/splide.min.js' %}"></script>
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
         {% endblock %}

@@ -210,7 +210,13 @@
         </div>
     </div>
 
-    {% include "home/_keynotes.html" %}
+    {% if page.keynote_speakers %}
+        {% include "home/_keynotes.html" %}
+    {% endif %}
+
+    {% if page.speakers %}
+        {% include "home/_speakers.html" %}
+    {% endif %}
 
     {% include "home/_schedules.html" %}
 
