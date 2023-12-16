@@ -38,13 +38,19 @@
           {% for sponsor in page.sponsors %}
           {% if sponsor.sponsor_type == sponsor_type %}
           <div class="h-120 w-280 flex justify-center bg-white rounded-[8px]">
-            <div class="p-25">
+            <div class="tooltip p-25">
               <img
                 class="w-full h-full object-contain"
                 title="{{ sponsor.name }}"
                 src="{{ sponsor.logo.url }}"
                 alt="{{ sponsor.name }}"
               />
+              <div class="tooltip-box">
+                {{ sponsor.info }}
+                <br><br>
+                You can visit us at <a href="{{ sponsor.website_url }}" 
+                target="_blank">{{ sponsor.name }}</a>
+              </div>
             </div>
           </div>
           {% endif %}
